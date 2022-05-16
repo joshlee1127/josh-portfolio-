@@ -20,7 +20,6 @@ const Work = () => {
             setFilterWork(data)
         })
     }, [])
-
     const handleWorkFilter = (item) => {
         setActiveFilter(item)
         setAnimateCard([{ y: 100, opacity: 0 }])
@@ -28,14 +27,19 @@ const Work = () => {
         setTimeout(() => {
             setAnimateCard([{ y: 0, opacity: 1 }])
 
-            if (item === "All") {
-                setFilterWork(works)
-            } else {
-                setFilterWork(works.filter((work) => work.tags.includes(item)))
-            }
+            // if (item === "All") {
+            //     setFilterWork(works)
+            // } else {
+            //     setFilterWork(works.filter((work) => work.tags.includes(item)))
+            // }
+            item === "All"
+                ? setFilterWork(works)
+                : setFilterWork(
+                      works.filter((work) => work.tags.includes(item))
+                  )
         }, 500)
     }
-
+    // ["UI/UX", "Web App", "Mobile App", "React JS", "All"]
     return (
         <>
             <h2 className="head-text">
@@ -43,18 +47,16 @@ const Work = () => {
             </h2>
 
             <div className="app__work-filter">
-                {["UI/UX", "Web App", "Mobile App", "React JS", "All"].map(
-                    (item, index) => (
-                        <div
-                            key={index}
-                            onClick={() => handleWorkFilter(item)}
-                            className={`app__work-filter-item app__flex p-text ${
-                                activeFilter === item ? "item-active" : ""
-                            }`}>
-                            {item}
-                        </div>
-                    )
-                )}
+                {["MERN", "FullStack", "React", "All"].map((item, index) => (
+                    <div
+                        key={index}
+                        onClick={() => handleWorkFilter(item)}
+                        className={`app__work-filter-item app__flex p-text ${
+                            activeFilter === item ? "item-active" : ""
+                        }`}>
+                        {item}
+                    </div>
+                ))}
             </div>
 
             <motion.div
@@ -118,4 +120,6 @@ const Work = () => {
     )
 }
 
-export default AppWrap(Work, "work")
+// export default AppWrap(Work, "work")
+
+export default AppWrap(MotionWrap(Work, "app__works"), "work", "app__primarybg")
