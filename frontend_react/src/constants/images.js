@@ -36,9 +36,13 @@ import skype from "../assets/skype.png"
 import spotify from "../assets/spotify.png"
 import profile_josh from "../assets/profile_josh.jpeg"
 import logo_josh from "../assets/logo_josh.svg"
+import logo_josh2 from "../assets/BgSub_josh_logo.png"
+import BgSub_profile_josh from "../assets/BgSub_profile_josh.png"
 export default {
     logo_josh,
+    logo_josh2,
     profile_josh,
+    BgSub_profile_josh,
     email,
     mobile,
     api,

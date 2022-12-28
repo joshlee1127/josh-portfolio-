@@ -40,7 +40,7 @@ const Header = () => {
                 whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 0.5, delayChildren: 0.5 }}
                 className="app__header-img">
-                <img src={images.profile_josh} alt="profile_bg" />
+                <img src={images.BgSub_profile_josh} alt="BgSub_profile_josh" />
                 <motion.img
                     whileInView={{ scale: [0, 1] }}
                     transition={{ duration: 1, ease: "easeInOut" }}
@@ -48,17 +48,12 @@ const Header = () => {
                     alt="profile_circle"
                     className="overlay_circle"></motion.img>
             </motion.div>
-            <motion.div
-                variant={scaleVariants}
-                whileInView={scaleVariants.whileInView}
-                className="app__header-circles">
-                {[images.react, images.node, images.javascript].map(
-                    (circle, i) => (
-                        <div className="circle-cmp app__flex" key={i}>
-                            <img src={circle} alt="circle" />
-                        </div>
-                    )
-                )}
+            <motion.div variant={scaleVariants} whileInView={scaleVariants.whileInView} className="app__header-circles">
+                {[images.react, images.node, images.javascript].map((circle, i) => (
+                    <div className="circle-cmp app__flex" key={i}>
+                        <img src={circle} alt="circle" />
+                    </div>
+                ))}
             </motion.div>
         </div>
     )

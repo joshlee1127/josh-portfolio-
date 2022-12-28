@@ -32,11 +32,7 @@ const Work = () => {
             // } else {
             //     setFilterWork(works.filter((work) => work.tags.includes(item)))
             // }
-            item === "All"
-                ? setFilterWork(works)
-                : setFilterWork(
-                      works.filter((work) => work.tags.includes(item))
-                  )
+            item === "All" ? setFilterWork(works) : setFilterWork(works.filter((work) => work.tags.includes(item)))
         }, 500)
     }
     // ["UI/UX", "Web App", "Mobile App", "React JS", "All"]
@@ -76,10 +72,7 @@ const Work = () => {
                                     staggerChildren: 0.5,
                                 }}
                                 className="app__work-hover app__flex">
-                                <a
-                                    href={work.projectLink}
-                                    target="_blank"
-                                    rel="noreferrer">
+                                <a href={work.projectLink} target="_blank" rel="noreferrer">
                                     <motion.div
                                         whileInView={{ scale: [0, 1] }}
                                         whileHover={{ scale: [1, 0.9] }}
@@ -88,10 +81,8 @@ const Work = () => {
                                         <AiFillEye />
                                     </motion.div>
                                 </a>
-                                <a
-                                    href={work.codeLink}
-                                    target="_blank"
-                                    rel="noreferrer">
+
+                                <a href={work.codeLink} target="_blank" rel="noreferrer">
                                     <motion.div
                                         whileInView={{ scale: [0, 1] }}
                                         whileHover={{ scale: [1, 0.9] }}
