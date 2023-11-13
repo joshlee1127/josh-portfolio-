@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import React, { useEffect, useState } from "react"
 import ReactTooltip from "react-tooltip"
+import { client, urlFor } from "../../client"
 import { AppWrap, MotionWrap } from "../../wrapper"
-import { urlFor, client } from "../../client"
 
 import "./Skills.scss"
 const Skills = () => {
@@ -21,7 +21,7 @@ const Skills = () => {
     }, [])
     return (
         <>
-            <h2 className="head-text">Skills & Experience</h2>
+            <h2 className="head-text">專長 & 經歷</h2>
             <div className="app__skills-container">
                 <motion.div className="app__skills-list">
                     {skills?.map((skill) => (
@@ -39,12 +39,12 @@ const Skills = () => {
                                     src={urlFor(skill.icon)}
                                     alt={skill.name}
                                 />
-                                <p className="p-text">{skill.name}</p>
+                                <p className="p-text">{skill.name} </p>
                             </div>
                         </motion.div>
                     ))}
                 </motion.div>
-                <div className="app__skills-exp">
+                <div className="app__skill-exp">
                     {experiences.map((experience, i) => (
                         <motion.div className="app__skills-exp-item" key={i}>
                             <div className="app__skills-exp-year">
@@ -54,7 +54,9 @@ const Skills = () => {
                                 {experience.works.map((work, i) => (
                                     <>
                                         <motion.div
-                                            whileInView={{ opacity: [0, 1] }}
+                                            whileInView={{
+                                                opacity: [0, 1],
+                                            }}
                                             transition={{ duration: 0.5 }}
                                             className="app__skills-exp-work"
                                             data-tip

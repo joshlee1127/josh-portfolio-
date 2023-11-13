@@ -1,10 +1,32 @@
+import { motion } from "framer-motion"
 import React, { useState } from "react"
 import { HiMenuAlt4, HiX } from "react-icons/hi"
-import { motion } from "framer-motion"
 
 import { images } from "../../constants"
 import "./Navbar.scss"
-const navLit = ["home", "about", "work", "skills", "contact"]
+const navLit2 = [
+    {
+        e: "home",
+        c: "首頁",
+    },
+    {
+        e: "about",
+        c: "關於",
+    },
+    {
+        e: "work",
+        c: "作品集",
+    },
+    {
+        e: "skills",
+        c: "專長",
+    },
+    {
+        e: "contact",
+        c: "聯絡我",
+    },
+]
+
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
 
@@ -18,10 +40,10 @@ const Navbar = () => {
                 />
             </div>
             <ul className="app__navbar-links">
-                {navLit.map((item) => (
-                    <li className="app__flex p-text" key={`link-${item}`}>
+                {navLit2.map((item) => (
+                    <li className="app__flex p2-text" key={`link-${item.e}`}>
                         <div />
-                        <a href={`#${item}`}>{item}</a>
+                        <a href={`#${item.e}`}>{item.c}</a>
                     </li>
                 ))}
             </ul>
@@ -35,12 +57,12 @@ const Navbar = () => {
                         transition={{ duration: 0.85, ease: "easeOut" }}>
                         <HiX onClick={() => setToggle(false)} />
                         <ul>
-                            {navLit.map((item) => (
-                                <li key={item}>
+                            {navLit2.map((item) => (
+                                <li key={item.e}>
                                     <a
-                                        href={`#${item}`}
+                                        href={`#${item.e}`}
                                         onClick={() => setToggle(false)}>
-                                        {item}
+                                        {item.c}
                                     </a>
                                 </li>
                             ))}

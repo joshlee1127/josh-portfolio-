@@ -43,7 +43,7 @@ const Work = () => {
     return (
         <>
             <h2 className="head-text">
-                My Creative <span>Portfolio</span> Section
+                <span>作品集</span> 精選
             </h2>
 
             <div className="app__work-filter">

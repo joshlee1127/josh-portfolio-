@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import React, { useEffect, useState } from "react"
+import { client, urlFor } from "../../client"
 import { images } from "../../constants"
-import "./About.scss"
-import { urlFor, client } from "../../client"
 import { AppWrap, MotionWrap } from "../../wrapper"
+import "./About.scss"
 const About = () => {
     const [abouts, setAbouts] = useState([])
     useEffect(() => {
@@ -17,9 +17,9 @@ const About = () => {
     return (
         <>
             <h2 className="head-text">
-                I Know That <span> Good DevOps 🙈</span>
+                我知道一個 <span> 好的DevOps 🙈</span>
                 <br />
-                Means<span> Good Business</span>
+                就代表<span> 好的職涯</span>
             </h2>
             <div className="app__profiles">
                 {abouts.map((about, index) => (
