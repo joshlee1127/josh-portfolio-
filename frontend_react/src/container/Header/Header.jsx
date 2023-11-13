@@ -109,34 +109,36 @@ const Header = () => {
             </motion.div>
 
             <motion.div></motion.div>
-            <Carousel
-                showThumbs={false}
-                autoPlay={true}
-                infiniteLoop={true}
-                interval={2000}
-                showArrows={true}
-                showStatus={false}
-                width={600}>
-                {headImages.map((image, i) => (
-                    <motion.div
-                        key={image.id}
-                        whileInView={{ opacity: [0, 1] }}
-                        transition={{ duration: 0.5, delayChildren: 0.5 }}
-                        className="app__header-img">
+
+            <motion.div
+                whileInView={{ opacity: [0, 1] }}
+                transition={{ duration: 0.5, delayChildren: 0.5 }}
+                className="app__header-img">
+                <Carousel
+                    showThumbs={false}
+                    autoPlay={true}
+                    infiniteLoop={true}
+                    interval={2000}
+                    showArrows={true}
+                    showStatus={false}>
+                    {headImages.map((image, i) => (
                         <img
+                            key={image.id}
                             src={image.imageUrl}
                             alt={image.alt}
                             style={{ borderRadius: "5%" }}
                         />
-                        <motion.img
-                            whileInView={{ scale: [0, 1] }}
-                            transition={{ duration: 1, ease: "easeInOut" }}
-                            src={images.circle}
-                            alt="profile_circle"
-                            className="overlay_circle"></motion.img>
-                    </motion.div>
-                ))}
-            </Carousel>
+                    ))}
+                </Carousel>
+                <motion.img
+                    whileInView={{ scale: [0, 1] }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    src={images.circle}
+                    alt="profile_circle"
+                    className="overlay_circle"
+                    style={{ zIndex: -3 }}></motion.img>
+            </motion.div>
+
             <motion.div
                 variant={scaleVariants}
                 whileInView={scaleVariants.whileInView}
