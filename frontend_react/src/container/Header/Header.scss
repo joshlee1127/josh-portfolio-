@@ -51,6 +51,11 @@
         margin-right: 0rem;
     }
 }
+.app__header-content {
+    @media screen and (max-width: 1200px) {
+        display: none !important;
+    }
+}
 
 .app__header-badge {
     width: 100%;

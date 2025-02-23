@@ -92,7 +92,8 @@ const Header = () => {
             <motion.div
                 whileInView={{ x: [-100, 0], opacity: [0, 1] }}
                 transition={{ duration: 1 }}
-                className="app__header-info">
+                className="app__header-info"
+            >
                 <div className="app__header-badge">
                     <div className="badge-cmp app__flex">
                         <span>👋</span>
@@ -105,7 +106,8 @@ const Header = () => {
                         <p className="p-text"> FullStack & Developer</p>
                         <p className="p-text"> Devops & SRE</p>
                     </div>
-                    <div className="tag-cmp app__flex">
+
+                    <div className="tag-cmp app__flex app__header-content">
                         <p className="sub-head-text">專業領域</p>
                         <p className="p-text">• 全端開發工程師</p>
                         <p className="p-text">• DevOps 工程師</p>
@@ -129,14 +131,16 @@ const Header = () => {
             <motion.div
                 whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 0.5, delayChildren: 0.5 }}
-                className="app__header-img">
+                className="app__header-img"
+            >
                 <Carousel
                     showThumbs={false}
                     autoPlay={true}
                     infiniteLoop={true}
                     interval={2000}
                     showArrows={true}
-                    showStatus={false}>
+                    showStatus={false}
+                >
                     {headImages.map((image, i) => (
                         <img
                             key={image.id}
@@ -152,13 +156,15 @@ const Header = () => {
                     src={images.circle}
                     alt="profile_circle"
                     className="overlay_circle"
-                    style={{ zIndex: -3 }}></motion.img>
+                    style={{ zIndex: -3 }}
+                ></motion.img>
             </motion.div>
 
             <motion.div
                 variant={scaleVariants}
                 whileInView={scaleVariants.whileInView}
-                className="app__header-circles">
+                className="app__header-circles"
+            >
                 {[images.react, images.node, images.javascript].map((circle, i) => (
                     <div className="circle-cmp app__flex" key={i}>
                         <img src={circle} alt="circle" />
