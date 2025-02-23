@@ -1,9 +1,9 @@
-import { motion } from "framer-motion"
-import React, { useState } from "react"
-import { HiMenuAlt4, HiX } from "react-icons/hi"
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { HiMenuAlt4, HiX } from "react-icons/hi";
 
-import { images } from "../../constants"
-import "./Navbar.scss"
+import { images } from "../../constants";
+import "./Navbar.scss";
 const navLit2 = [
     {
         e: "home",
@@ -25,10 +25,10 @@ const navLit2 = [
         e: "contact",
         c: "聯絡我",
     },
-]
+];
 
 const Navbar = () => {
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
 
     return (
         <nav className="app__navbar">
@@ -71,7 +71,7 @@ const Navbar = () => {
                 )}
             </div>
         </nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

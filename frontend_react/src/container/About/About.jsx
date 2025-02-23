@@ -1,22 +1,22 @@
-import { motion } from "framer-motion"
-import React, { useEffect, useState } from "react"
-import { client, urlFor } from "../../client"
-import { images } from "../../constants"
-import { AppWrap, MotionWrap } from "../../wrapper"
-import "./About.scss"
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { client, urlFor } from "../../client";
+import { images } from "../../constants";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import "./About.scss";
 const About = () => {
-    const [abouts, setAbouts] = useState([])
+    const [abouts, setAbouts] = useState([]);
     useEffect(() => {
-        const query = '*[_type == "abouts"]'
+        const query = '*[_type == "abouts"]';
 
         client.fetch(query).then((data) => {
-            setAbouts(data)
-        })
-    }, [])
+            setAbouts(data);
+        });
+    }, []);
 
     return (
         <>
-            <h2 className="head-text">
+            <h2 className="head-text" style={{ marginTop: "1.5rem" }}>
                 我知道一個 <span> 好的DevOps 🙈</span>
                 <br />
                 就代表<span> 好的職涯</span>
@@ -43,7 +43,7 @@ const About = () => {
                 ))}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default AppWrap(MotionWrap(About, "app__about"), "about", "app__whitebg")
+export default AppWrap(MotionWrap(About, "app__about"), "about", "app__whitebg");

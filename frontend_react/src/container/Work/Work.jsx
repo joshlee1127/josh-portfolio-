@@ -1,31 +1,31 @@
-import { motion } from "framer-motion"
-import React, { useEffect, useState } from "react"
-import { AiFillEye, AiFillGithub } from "react-icons/ai"
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { AiFillEye, AiFillGithub } from "react-icons/ai";
 
-import { client, urlFor } from "../../client"
-import { AppWrap, MotionWrap } from "../../wrapper"
-import "./Work.scss"
+import { client, urlFor } from "../../client";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import "./Work.scss";
 
 const Work = () => {
-    const [works, setWorks] = useState([])
-    const [filterWork, setFilterWork] = useState([])
-    const [activeFilter, setActiveFilter] = useState("All")
-    const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
+    const [works, setWorks] = useState([]);
+    const [filterWork, setFilterWork] = useState([]);
+    const [activeFilter, setActiveFilter] = useState("All");
+    const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
     useEffect(() => {
-        const query = '*[_type == "works"]'
+        const query = '*[_type == "works"]';
 
         client.fetch(query).then((data) => {
-            setWorks(data)
-            setFilterWork(data)
-        })
-    }, [])
+            setWorks(data);
+            setFilterWork(data);
+        });
+    }, []);
     const handleWorkFilter = (item) => {
-        setActiveFilter(item)
-        setAnimateCard([{ y: 100, opacity: 0 }])
+        setActiveFilter(item);
+        setAnimateCard([{ y: 100, opacity: 0 }]);
 
         setTimeout(() => {
-            setAnimateCard([{ y: 0, opacity: 1 }])
+            setAnimateCard([{ y: 0, opacity: 1 }]);
 
             // if (item === "All") {
             //     setFilterWork(works)
@@ -34,15 +34,13 @@ const Work = () => {
             // }
             item === "All"
                 ? setFilterWork(works)
-                : setFilterWork(
-                      works.filter((work) => work.tags.includes(item))
-                  )
-        }, 500)
-    }
+                : setFilterWork(works.filter((work) => work.tags.includes(item)));
+        }, 500);
+    };
     // ["UI/UX", "Web App", "Mobile App", "React JS", "All"]
     return (
         <>
-            <h2 className="head-text">
+            <h2 className="head-text" style={{ marginTop: "1.5rem" }}>
                 <span>作品集</span> 精選
             </h2>
 
@@ -91,10 +89,7 @@ const Work = () => {
                                     </motion.div>
                                 </a>
 
-                                <a
-                                    href={work.codeLink}
-                                    target="_blank"
-                                    rel="noreferrer">
+                                <a href={work.codeLink} target="_blank" rel="noreferrer">
                                     <motion.div
                                         whileInView={{ scale: [0, 1] }}
                                         whileHover={{ scale: [1, 0.9] }}
@@ -120,9 +115,9 @@ const Work = () => {
                 ))}
             </motion.div>
         </>
-    )
-}
+    );
+};
 
 // export default AppWrap(Work, "work")
 
-export default AppWrap(MotionWrap(Work, "app__works"), "work", "app__primarybg")
+export default AppWrap(MotionWrap(Work, "app__works"), "work", "app__primarybg");
